@@ -26,11 +26,9 @@ import coil.compose.rememberAsyncImagePainter
 @Composable//Logic for displaying according to situation while taken info from various models and apis
 fun RecipeScreen(
     modifier: Modifier = Modifier,
-    navigateToDetail: (Category) -> Unit
+    navigateToDetail: (Category) -> Unit,
+    viewstate: MainViewModel.RecipeState
 ){
-    val recipeViewModel:MainViewModel = viewModel()
-    val viewstate by recipeViewModel.categoryState
-
     Box(modifier = Modifier.fillMaxSize()){
         when{
             viewstate.loading ->{
